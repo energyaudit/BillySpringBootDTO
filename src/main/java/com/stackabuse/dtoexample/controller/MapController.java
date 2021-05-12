@@ -19,6 +19,7 @@ import com.stackabuse.dtoexample.dto.UserLocationDTO;
 import com.stackabuse.dtoexample.service.MapService;
 
 @RestController
+//Finally, let's make a /map endpoint to allow someone to retrieve the location of the users
 @RequestMapping(value="/map")
 public class MapController {
 	@Autowired

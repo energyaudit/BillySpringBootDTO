@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 
 
 @Entity
-public class User {
+public class User {//Let's start off with the User model:
 		@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
@@ -19,7 +19,8 @@ public class User {
 	    private String lastName;
 	    private String password;
 	    private String email;
-	    
+	    //It contains some rudimentary information like the username, firstName,
+		// email, etc. It also has a many-to-one relationship with the Location entity
 	    @ManyToOne(fetch = FetchType.EAGER, optional = false)
 	    @JoinColumn(name = "location_id")
 	    private Location location;

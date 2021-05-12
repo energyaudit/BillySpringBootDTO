@@ -1,5 +1,6 @@
 package com.stackabuse.dtoexample.dto;
-
+//Let's make a Data Transfer Object to only transfer the required information. And while we're at it
+// , let's aggregate the User and Location information, so that the data is transferred together
 public class UserLocationDTO {
 	private Long userId;
 	private String username;
@@ -37,5 +38,7 @@ public class UserLocationDTO {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-
+//This object now contains all the information we want to show to the end-user.
+// Now, we'll need a way to map the User and Location objects into a single UserLocationDTO object.
+// This is typically done via mapping tools, such as MapStruct or ModelMapper
 }

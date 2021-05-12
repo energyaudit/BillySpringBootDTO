@@ -1,4 +1,4 @@
-# QA To Understand Sping for Testing
+# QA To Understand Spring for Testing
 
 This project is used for DTO learning from 
 https://stackabuse.com/data-transfer-object-pattern-in-java-implementation-and-mapping/. 

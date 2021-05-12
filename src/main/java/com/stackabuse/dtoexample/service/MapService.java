@@ -16,6 +16,10 @@ import com.stackabuse.dtoexample.repository.UserRepository;
 
 @Service
 public class MapService {
+	//Now, we'll need a way to map the User and Location objects into a single UserLocationDTO
+// object. This is typically done via mapping tools, such as MapStruct or ModelMapper
+//For now, let's perform the conversion manually. Since we'll need a service that calls
+// our UserRepository, we'll also map the results there and return the DTOs
 
 	@Autowired
 	private LocationRepository locationRepository;
@@ -40,7 +44,8 @@ public class MapService {
 		return ((List<User>) userRepository.findAll()).stream().map(this::convertToUserLocationDTO_V2)
 				.collect(Collectors.toList());
 	}
-	
+//Upon retrieving a list of Users, we directly convert them, alongside their Location information
+// to UserLocationDTO objects. When calling this service, we'll retrieve this list of DTOs
 	private UserLocationDTO convertToUserLocationDTO(User user) {
 		UserLocationDTO userLocationDTO = new UserLocationDTO();
 		userLocationDTO.setUserId(user.getId());
@@ -51,7 +56,9 @@ public class MapService {
 		userLocationDTO.setPlace(location.getPlace());
 		return userLocationDTO;
 	}
-	
+//This object now contains all the information we want to show to the end-user. Now, we'll need a way to map
+// the User and Location objects into a single UserLocationDTO object. This is typically done via
+// mapping tools, such as MapStruct or ModelMapper
 	private UserLocationDTO convertToUserLocationDTO_V2(User user) {
 	    modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		UserLocationDTO userLocationDTO = modelMapper.map(user, UserLocationDTO.class);
